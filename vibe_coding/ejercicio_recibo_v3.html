@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Recibo Green & Blue Aquamarine</title>
 
   <style>
@@ -31,6 +31,19 @@
       display:flex;
       flex-direction:column;
       gap:7px;
+    }
+
+    input,
+    textarea{
+      border:none;
+      outline:none;
+      background:transparent;
+      width:100%;
+      height:100%;
+      font-size:10px;
+      font-family:'Open Sans',sans-serif;
+      color:#000;
+      resize:none;
     }
 
     /* ───────── HEADER ───────── */
@@ -151,11 +164,12 @@
     }
 
     .recibo-number{
+      width:100%;
+      text-align:center;
       font-size:20px;
       font-weight:700;
       color:#1565c0;
       font-family:'Oswald',sans-serif;
-      display:block;
       letter-spacing:1px;
     }
 
@@ -196,6 +210,12 @@
       height:18px;
       border:1.5px solid #3a7ab5;
       background:white;
+      padding:1px;
+    }
+
+    .date-box input{
+      text-align:center;
+      font-size:9px;
     }
 
     .field{
@@ -215,8 +235,12 @@
     .fline{
       flex:1;
       border-bottom:1.5px solid #3a7ab5;
-      height:14px;
+      height:18px;
       min-width:30px;
+    }
+
+    .fline input{
+      padding:0 2px;
     }
 
     /* ───────── TABLA CENTRAL ───────── */
@@ -268,6 +292,13 @@
 
     .description-space{
       flex:1;
+      padding:5px;
+    }
+
+    .description-space textarea{
+      height:100%;
+      min-height:100px;
+      font-size:10px;
     }
 
     .observations-box{
@@ -277,6 +308,15 @@
       font-size:9px;
       font-weight:700;
       color:#1565c0;
+      display:flex;
+      flex-direction:column;
+      gap:3px;
+    }
+
+    .observations-box textarea{
+      height:35px;
+      font-size:9px;
+      font-weight:normal;
     }
 
     .value-column{
@@ -287,6 +327,14 @@
 
     .value-space{
       flex:1;
+      padding:5px;
+    }
+
+    .value-space textarea{
+      height:100%;
+      min-height:100px;
+      text-align:right;
+      font-size:10px;
     }
 
     .total-box{
@@ -296,6 +344,15 @@
       font-size:10px;
       font-weight:700;
       color:#1565c0;
+      display:flex;
+      flex-direction:column;
+      gap:3px;
+    }
+
+    .total-box input{
+      text-align:right;
+      font-size:12px;
+      font-weight:bold;
     }
 
     /* ───────── FIRMAS ───────── */
@@ -316,6 +373,12 @@
       border-top:1.5px solid #3a7ab5;
       margin-bottom:3px;
       margin-top:28px;
+      height:20px;
+    }
+
+    .firma-line input{
+      text-align:center;
+      margin-top:-15px;
     }
 
     .firma-label{
@@ -334,6 +397,11 @@
       body{
         background:white;
         padding:0;
+      }
+
+      input,
+      textarea{
+        border:none;
       }
     }
 
@@ -392,7 +460,13 @@
         <div class="recibo-box">
           <span class="recibo-label">RECIBO</span>
           <span class="recibo-no-label">No.</span>
-          <span class="recibo-number">0459</span>
+
+          <input 
+            type="text" 
+            class="recibo-number" 
+            maxlength="6"
+            value="0459"
+          >
         </div>
 
       </div>
@@ -408,9 +482,17 @@
           <span class="date-label">Fecha Inicio</span>
 
           <div class="date-boxes">
-            <div class="date-box"></div>
-            <div class="date-box"></div>
-            <div class="date-box"></div>
+            <div class="date-box">
+              <input type="text" maxlength="2">
+            </div>
+
+            <div class="date-box">
+              <input type="text" maxlength="2">
+            </div>
+
+            <div class="date-box">
+              <input type="text" maxlength="4">
+            </div>
           </div>
         </div>
 
@@ -418,9 +500,17 @@
           <span class="date-label">Fecha Finalización</span>
 
           <div class="date-boxes">
-            <div class="date-box"></div>
-            <div class="date-box"></div>
-            <div class="date-box"></div>
+            <div class="date-box">
+              <input type="text" maxlength="2">
+            </div>
+
+            <div class="date-box">
+              <input type="text" maxlength="2">
+            </div>
+
+            <div class="date-box">
+              <input type="text" maxlength="4">
+            </div>
           </div>
         </div>
 
@@ -428,12 +518,18 @@
 
       <div class="field" style="flex:2;">
         <span class="fl">Señor (es):</span>
-        <div class="fline"></div>
+
+        <div class="fline">
+          <input type="text" maxlength="40">
+        </div>
       </div>
 
       <div class="field" style="flex:1;">
         <span class="fl">Teléfono:</span>
-        <div class="fline"></div>
+
+        <div class="fline">
+          <input type="text" maxlength="15">
+        </div>
       </div>
 
     </div>
@@ -443,37 +539,58 @@
 
       <div class="field" style="flex:1.2;">
         <span class="fl">Ciudad:</span>
-        <div class="fline"></div>
+
+        <div class="fline">
+          <input type="text" maxlength="20">
+        </div>
       </div>
 
       <div class="field" style="flex:2;">
         <span class="fl">Dirección:</span>
-        <div class="fline"></div>
+
+        <div class="fline">
+          <input type="text" maxlength="45">
+        </div>
       </div>
 
       <div class="field" style="flex:0.6;">
         <span class="fl">Edad:</span>
-        <div class="fline"></div>
+
+        <div class="fline">
+          <input type="text" maxlength="3">
+        </div>
       </div>
 
       <div class="field" style="flex:0.6;">
         <span class="fl">Peso:</span>
-        <div class="fline"></div>
+
+        <div class="fline">
+          <input type="text" maxlength="6">
+        </div>
       </div>
 
       <div class="field" style="flex:0.6;">
         <span class="fl">Talla:</span>
-        <div class="fline"></div>
+
+        <div class="fline">
+          <input type="text" maxlength="6">
+        </div>
       </div>
 
       <div class="field" style="flex:0.6;">
         <span class="fl">PPL:</span>
-        <div class="fline"></div>
+
+        <div class="fline">
+          <input type="text" maxlength="10">
+        </div>
       </div>
 
       <div class="field" style="flex:0.8;">
         <span class="fl">VR. TOTAL</span>
-        <div class="fline"></div>
+
+        <div class="fline">
+          <input type="text" maxlength="15">
+        </div>
       </div>
 
     </div>
@@ -500,10 +617,14 @@
         <!-- IZQUIERDA -->
         <div class="description-column">
 
-          <div class="description-space"></div>
+          <div class="description-space">
+            <textarea maxlength="700"></textarea>
+          </div>
 
           <div class="observations-box">
             OBSERVACIONES
+
+            <textarea maxlength="200"></textarea>
           </div>
 
         </div>
@@ -511,10 +632,14 @@
         <!-- DERECHA -->
         <div class="value-column">
 
-          <div class="value-space"></div>
+          <div class="value-space">
+            <textarea maxlength="200"></textarea>
+          </div>
 
           <div class="total-box">
             TOTAL $
+
+            <input type="text" maxlength="15">
           </div>
 
         </div>
@@ -527,14 +652,22 @@
     <div class="firmas">
 
       <div class="firma-block">
-        <div class="firma-line"></div>
+
+        <div class="firma-line">
+          <input type="text" maxlength="30">
+        </div>
+
         <div class="firma-label">
           FIRMA DEL INSTRUCTOR
         </div>
       </div>
 
       <div class="firma-block">
-        <div class="firma-line"></div>
+
+        <div class="firma-line">
+          <input type="text" maxlength="30">
+        </div>
+
         <div class="firma-label">
           FIRMA DEL USUARIO
         </div>
